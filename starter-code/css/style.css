@@ -1,1 +1,57 @@
 /* TODO: Make it awesome */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+/* Header & nav */
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+nav ul {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+nav li {
+  margin: 0 20px;
+}
+
+/* Main */
+main {
+  height: calc(100% - 160px);
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.deck {
+  width: 40%;
+}
+
+.col-1 {
+  margin-right: 10%;
+}
+
+.col-2 {
+  margin-left: 10%;
+}
+
+/* Footer */
+footer {
+  height: 80px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
