@@ -90,31 +90,29 @@ function updateCartPreview() {
 
   // TODO: Add a new element to the cartContents div with that information
   var cartContentsDiv = document.getElementById('cartContents');
-  var ulElement;
+  var ulElement = document.querySelector('#cartContents ul');
   var liElement;
-  try
-  {
-    ulElement = cartContentsDiv.getElementById('ul');
-  }
-  catch(e)
-  {
+
+  if (ulElement !== null) {
+    console.log('ulElement', ulElement);
+  } else {
     console.log('lets create it since it doesnt exist');
     ulElement = document.createElement('ul');
     cartContentsDiv.appendChild(ulElement);
-  }  
-  // Create inline UL for each Item
-  var itemUlElement = document.createElement('ul');
+  }
   // TODO: maybe toss in the image somewhere in here
   //new element for item name
   liElement = document.createElement('li');
-  liElement.innerText = itemSelected;
-  itemUlElement.appendChild(liElement);
+  var spanItemSelected = document.createElement('span');
+  spanItemSelected.textContent = itemSelected;
+  liElement.appendChild(spanItemSelected);
+
   //new element for quantity
-  liElement = document.createElement('li');
-  liElement.innerText = itemQuantity;
-  itemUlElement.appendChild(liElement);
-  //append item UL into items UL
-  ulElement.appendChild(itemUlElement);
+  var spanItemQuantity = document.createElement('span');
+  spanItemQuantity.textContent = itemQuantity;
+  liElement.appendChild(spanItemQuantity);
+
+  ulElement.appendChild(liElement);
 }
 
 // Set up the "submit" event listener on the form.

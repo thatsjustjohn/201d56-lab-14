@@ -99,6 +99,26 @@ main {
   padding: 20px;
 }
 
+#cart tr > td:nth-of-type(1) {
+  cursor: pointer;
+}
+
+#cart tr > td:nth-of-type(3) {
+  width: 250px;
+}
+
+#cartContents ul {
+  margin-top: 40px;
+}
+
+#cartContents li {
+  margin-bottom: 1em;
+}
+
+#cartContents li span {
+  margin-right: 5px;
+}
+
 /* Footer */
 footer {
   height: 80px;
