@@ -19,6 +19,10 @@ function populateForm() {
     optionElement.appendChild(textElement);
     selectElement.appendChild(optionElement);
   }
+  var inputElement = document.getElementById('quantity');
+  inputElement.setAttribute('min', 1);
+  inputElement.setAttribute('max', 1000);
+  inputElement.setAttribute('value', 1);
 }
 
 // When someone submits the form, we need to add the selected item to the cart
