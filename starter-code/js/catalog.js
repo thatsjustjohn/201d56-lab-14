@@ -48,7 +48,19 @@ function addSelectedItemToCart() {
   // Get Quantity
   var itemQuantity = Number(document.getElementById('quantity').value);
   // Add item to cart
-  cart.addItem(itemSelected, itemQuantity);
+  //check to see if we already have the item
+  let itemInCart = false;
+  let cartSize = cart.items.length;
+  for(let i = 0; i < cartSize; i++){
+    if(cart.items[i].product === itemSelected)
+    {
+      cart.items[i].quantity += itemQuantity;
+      itemInCart = true;
+    }
+  }
+  if(!itemInCart){
+    cart.addItem(itemSelected, itemQuantity);
+  }
   //maybe clear values when its been added?
   console.log(cart);
 }
@@ -63,7 +75,7 @@ function updateCounter() {
   document.getElementById('itemCount').textContent = totalItems;
 }
 
-// TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
+//✔  TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
   //✔ TODO: Get the item and quantity from the form
   // Get Item
@@ -74,7 +86,31 @@ function updateCartPreview() {
 
   // TODO: Add a new element to the cartContents div with that information
   var cartContentsDiv = document.getElementById('cartContents');
-
+  var ulElement;
+  var liElement;
+  try
+  {
+    ulElement = cartContentsDiv.getElementById('ul');
+  }
+  catch(e)
+  {
+    console.log('lets create it since it doesnt exist');
+    ulElement = document.createElement('ul');
+    cartContentsDiv.appendChild(ulElement);
+  }  
+  // Create inline UL for each Item
+  var itemUlElement = document.createElement('ul');
+  // TODO: maybe toss in the image somewhere in here
+  //new element for item name
+  liElement = document.createElement('li');
+  liElement.innerText = itemSelected;
+  itemUlElement.appendChild(liElement);
+  //new element for quantity
+  liElement = document.createElement('li');
+  liElement.innerText = itemQuantity;
+  itemUlElement.appendChild(liElement);
+  //append item UL into items UL
+  ulElement.appendChild(itemUlElement);
 }
 
 // Set up the "submit" event listener on the form.

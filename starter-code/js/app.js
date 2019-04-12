@@ -6,7 +6,7 @@ var Cart = function(items) {
   this.items = items;
 };
 
-// TODO: Maybe redo this to combine like quantities
+//✔ TODO: Maybe redo this to combine like quantities
 Cart.prototype.addItem = function(product, quantity) {
   //✔ TODO: Fill in this instance method to create a new CartItem and add it to this.items
   this.items.push(new CartItem(product, quantity));
@@ -21,19 +21,16 @@ Cart.prototype.saveToLocalStorage = function() {
 Cart.prototype.removeItem = function(item) {
   //✔ TODO: Fill in this instance method to remove one item from the cart.
   // Note: You will have to decide what kind of parameter to pass in here!
-  //find the item index
+  console.log(this.items[0]);
   let cartSize = this.items.length;
+  let itemToRemove;
   for(let i = 0; i < cartSize; i++){
     if(this.items[i].product === item)
     {
-      //decrement item
-      this.items[i].quantity--;
-      //remove item if 0
-      if(this.items[i].quantity === 0){
-        this.items.slice(i,1);
-      }
+      itemToRemove = i;
     }
   }
+  cart.items.splice(itemToRemove,1);
 };
 
 var CartItem = function(product, quantity) {

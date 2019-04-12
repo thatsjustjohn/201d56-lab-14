@@ -40,7 +40,7 @@ function showCart() {
     // Create TDs
     let tableDElement = document.createElement('td');
     //✔ TODO: CHANGE DELETE TO LINK?
-    tableDElement.innerText = 'Delete';
+    tableDElement.innerText = 'X';
     tableRowElement.appendChild(tableDElement);
     // Crete new TD element for quanitity
     tableDElement = document.createElement('td');
